@@ -5,6 +5,7 @@ import router from './routes';
 
 const app: express.Application = express();
 app.use(cors());
+app.use(express.json());
 
 app.use('/graph', router);
 
