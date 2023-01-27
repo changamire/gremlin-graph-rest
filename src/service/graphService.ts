@@ -1,24 +1,27 @@
-import {Neighbours} from 'gremlin-graph-service/dist/types/domain/interfaces';
+import {Neighbours, Vertex} from 'gremlin-graph-service/dist/types/domain/interfaces';
 import {GremlinClient} from 'gremlin-graph-service';
-import { uuid } from 'uuidv4';
 
 export default class GraphService {
   private gremlinClient: GremlinClient;
 
   constructor() {
-    this.gremlinClient = new GremlinClient('ws://localhost:8182/gremlin');
+    this.gremlinClient = new GremlinClient('ws://127.0.0.1:8182/gremlin');
   }
 
   public async getNeighbours(vertexId: string): Promise<Neighbours> {
     return this.gremlinClient.getNeighbours(vertexId);
   }
 
-  public async addVertex(label: string): Promise<any> {
-    return this.gremlinClient.addVertex(uuid(), label, {});
+  public async addVertex(id: string, label: string, properties: {}): Promise<any> {
+    return this.gremlinClient.addVertex(id, label, properties);
   }
 
-  public async addEdge(fromVertexId: string, toVertexId: string,
-                       label: string): Promise<any> {
-    return this.gremlinClient.addEdge(fromVertexId, toVertexId, label, {});
+  public async addEdge(id: string, fromVertexId: string, toVertexId: string,
+                       label: string, properties: {}): Promise<any> {
+    return this.gremlinClient.addEdge(id, fromVertexId, toVertexId, label, properties);
+  }
+
+  public async findVertex(label: string, key: string, value: string): Promise<Vertex[]> {
+    return this.gremlinClient.findVertexByLabelAndAttribute(label, key, value);
   }
 }
