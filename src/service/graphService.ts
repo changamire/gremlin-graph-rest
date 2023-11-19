@@ -5,7 +5,8 @@ export default class GraphService {
   private gremlinClient: GremlinClient;
 
   constructor() {
-    this.gremlinClient = new GremlinClient('ws://127.0.0.1:8182/gremlin');
+    console.log(`Connecting to Gremlin endpoint at ${process.env.GREMLIN_ENDPOINT}`);
+    this.gremlinClient = new GremlinClient(process.env.GREMLIN_ENDPOINT);
   }
 
   public async getNeighbours(vertexId: string): Promise<Neighbours> {
