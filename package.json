@@ -14,6 +14,8 @@
   ],
   "author": "changamire",
   "license": "ISC",
+  "main": "dist/app.local.js",
+  "files": ["dist"],
   "bugs": {
     "url": "https://github.com/changamire/gremlin-graph-rest/issues"
   },
