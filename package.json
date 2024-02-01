@@ -1,6 +1,6 @@
 {
   "name": "gremlin-graph-rest",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A RESTful API providing some useful methods into a Gremlin graph database",
   "repository": {
     "type": "git",
