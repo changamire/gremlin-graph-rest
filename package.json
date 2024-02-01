@@ -1,6 +1,6 @@
 {
   "name": "gremlin-graph-rest",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A RESTful API providing some useful methods into a Gremlin graph database",
   "repository": {
     "type": "git",
@@ -15,7 +15,9 @@
   "author": "changamire",
   "license": "ISC",
   "main": "dist/app.local.js",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "bugs": {
     "url": "https://github.com/changamire/gremlin-graph-rest/issues"
   },
