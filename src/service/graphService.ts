@@ -5,8 +5,9 @@ export default class GraphService {
   private gremlinClient: GremlinClient;
 
   constructor() {
-    console.log(`Connecting to Gremlin endpoint at ${process.env.GREMLIN_ENDPOINT}`);
+    console.log(`Connecting to Gremlin endpoint at ${process.env.GREMLIN_HOST}:${process.env.GREMLIN_PORT}`);
     const useIAM: boolean = process.env.USE_IAM === 'true' ? true : false;
+    console.log(`IAM enabled: ${useIAM}`)
     this.gremlinClient = new GremlinClient(useIAM, process.env.GREMLIN_HOST, parseInt(process.env.GREMLIN_PORT), process.env.AWS_REGION);
   }
 
